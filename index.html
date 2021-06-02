@@ -189,7 +189,27 @@
 		background-color: black;
 		color: white;
 		text-align: center;
-}
+	}
+	  
+	@media only screen and (max-width: 600px) {
+	.mobile-view {
+		padding-left: 6em;
+		padding-top: 1em;
+	}
+	
+	.headingBeautify{
+	   text-align: center;
+	}
+	
+	.mobileDate{
+		margin-left: 2em;
+		padding-left: 1em;
+	}
+	
+	.dataDiv{
+		padding-top: 22vh;
+	}
+}  
 	  
     </style>
 </head>
@@ -200,9 +220,15 @@
 		<label class="headingBeautify">Check Covid-19 Vaccination Slot Availability</label>
 	 </div>
 	 <div class="inline-block">
-	 	<label for="pin" class="labelBeautify">Pin Code</label><input type="number" id="pin" class="beautify" required>
-	 	<label for="date" class="labelBeautify">Date</label><input type="date" id="date" class= "beautify" required>
-	 	<input type="button" id="submit" class="btn btn-primary" value="Submit"><input type="reset" class="btn" value="Reset">
+		<div class="inline-block">
+			<label for="pin" class="labelBeautify">Pin Code</label><input type="number" id="pin" class="beautify" required>
+		</div>
+		<div class="inline-block">
+			<label for="date" class="labelBeautify">Date</label><input type="date" id="date" class= "beautify mobileDate" required>
+		</div>
+		<div class="inline-block mobile-view">
+			<input type="button" id="submit" class="btn btn-primary" value="Submit"><input type="reset" class="btn" value="Reset">
+		</div>
 	 </div>
 	</div>
 	<div class="dataDiv">
