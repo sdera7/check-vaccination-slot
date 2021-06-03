@@ -85,21 +85,26 @@
   $("#submit").click(function(){
     var pin = $("#pin").val().trim();
 	if(pin === undefined || pin === "" || pin.length > 6 || pin.indexOf("e") !== -1){
+		$("#showData").html("");
 		$("#error").html("<p style='color:red;'>Please enter correct pin code.</p>");
 		return;
 	}
 	
 	var date = processDate($("#date").val().trim());
 	if(date === undefined || date.indexOf("undefined") !== -1){
+		$("#showData").html("");
 		$("#error").html("<p style='color:red;'>Please enter correct date.</p>");
 		return;
 	}
 	
 	$.getJSON("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pin+"&date="+date+'"', function(result){ 
 	var data = result.sessions;
-	if(data.length > 0)
+	if(data.length > 0){
+		$("#error").html("");
 		showData(data);
+	}
 	else{
+		$("#showData").html("");
 		$("#error").html("No data available for this pincode/date.<br>Kindly re-enter pincode/data.");
 	}
 	});
